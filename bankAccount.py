@@ -31,10 +31,10 @@ class BankAccount:
         print(f"Current amount is {self.curr_bal}")
 
         # Adding Validation: If remaining balance is less than minimal balance, user can't withdraw
-        if value > 0 and self.curr_bal - amount >= self.mini_bal:
+        if value > 0 and self.curr_bal - value >= self.mini_bal:
             self.curr_bal -= value
             print(f"You withdrew {value}. Your new balance is {self.curr_bal}.")
-        elif amount > 0:
+        elif value > 0:
             print(f"Insufficient funds. Remaining balance must be at least {self.mini_bal}.")
         else:
             print("Withdrawal amount must be positive.")
