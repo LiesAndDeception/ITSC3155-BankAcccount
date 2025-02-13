@@ -1,3 +1,8 @@
+# Author: Sophia Godfrey (TODO add Peter when merged in final branch)
+# Class: Intro to Software Engineering (ITSC 3155)
+# Date: February 13, 2025
+# Assignment: Bank Account Part 2
+
 from savings_and_checking import SavingsAccount
 
 class BankAccount:
@@ -11,7 +16,13 @@ class BankAccount:
         self.mini_bal = mini_bal
 
     def deposit(self, value):
-        self.curr_bal += value
+        print(f"Current amount is {self.curr_bal}")
+        
+        if value > 0:
+            self.curr_bal += value
+            print(f"You deposited {value}. Your new balance is {self.curr_bal}.")
+        else:
+            print("You deposited an invalid amount")
 
     def withdraw(self, value):
         if self.curr_bal - value < self.mini_bal:
