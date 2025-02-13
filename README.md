@@ -5,7 +5,7 @@ Pat 2 of the Bank Account assignment will add the following new features and use
 | Category                      | Details                                      |
 |--------------------------------|----------------------------------------------|
 | **Subclasses (Using [Inheritance](https://www.w3schools.com/python/python_inheritance.asp))** | - Savings account with interest  <br> - Checking account with transfer limitation |
-| **Protected and Private Members** | - Account number (protected/private)  <br> - Routing number (protected/private) |
+| **Protected and Private Members** | - Account number  <br> - Routing number  |
 | **Module Structure**           | - Puts each class in a separate module       |
 | **Main File**                  | - Create a main file to run the program  <br> - Import Savings and Checking classes into the main file |
 
