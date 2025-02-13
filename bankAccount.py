@@ -1,3 +1,4 @@
+from savings_and_checking import SavingsAccount
 
 class BankAccount:
 
@@ -46,5 +47,3 @@ acct1.withdraw(100)
 acct1.print_customer_information()
 acct2.print_customer_information()
 acct2.withdraw(200)
-
-# Assignment completed alone by Peter Crean
