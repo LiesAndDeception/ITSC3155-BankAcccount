@@ -1,7 +1,48 @@
-# Author: Sophia Godfrey (TODO add Peter when merged in final branch)
+# Author: Sophia Godfrey and Peter Crean
 # Class: Intro to Software Engineering (ITSC 3155)
 # Date: February 13, 2025
 # Assignment: Bank Account Part 2
+
+
+
+# Test Cases For Assignment:
+
+# Checking Account:
+# Case 1:
+    # Run file
+    # type "David"
+    # type "2"
+    # type "deposit"
+    # type "2000"
+    # type "4"
+
+# Case 2:
+
+    # Run file
+    # type "Ann"
+    # type "2"
+    # type "withdraw"
+    # type "11000"
+    # type "4"
+
+# Savings Account:
+# Case 1:
+    # Run file
+    # type "David"
+    # type "3"
+    # type "withdraw"
+    # type "2000"
+    # type "4"
+
+# Case 2:
+
+    # Run file
+    # type "Ann"
+    # type "3"
+    # type "cancel"
+    # type "4"
+
+
 
 import checking_account
 from bankAccount import BankAccount
@@ -50,9 +91,6 @@ while True:
         customer_account.print_customer_information()
 
     elif choice == "2":
-        print("Checking Account Information:")
-        customer_account.print_customer_information()
-
         # Match customer name to the correct checking account and update customer_account
         if customer_name == customer1.name:
             customer_account = customer1_checking
@@ -62,13 +100,15 @@ while True:
             print("Error: Checking account not found.")
             continue  # Go back to menu
 
+        print("Checking Account Information:")
+        customer_account.print_customer_information()
+
         print("Your masked Checking account number is:")
         print(customer_account.get_account_number())
 
-    elif choice == "3":
-        print("Savings Account Information:")
-        customer_account.print_customer_information()
+        customer_account.customer_action()
 
+    elif choice == "3":
         # Match customer name to the correct checking account and update customer_account
         if customer_name == customer1.name:
             customer_account = customer1_saving
@@ -78,8 +118,13 @@ while True:
             print("Error: Checking account not found.")
             continue  # Go back to menu
 
+        print("Savings Account Information:")
+        customer_account.print_customer_information()
+
         print("Your masked Saving account number is:")
         print(customer_account.get_account_number())
+
+        customer_account.customer_action()
 
     elif choice == "4":
         print(f"Thank you for using {customer_account.title}. Have a great day!")

@@ -1,11 +1,11 @@
-from bankAccount import BankAccount
+from BankAccount import BankAccount
 
 class SavingsAccount(BankAccount):
     """Savings account subclass with interest, compounding every year."""
 
     def __init__(self, name, account_number, curr_bal=0.0, mini_bal=0.0, interest_rate=0.02, routing_number=None):
         super().__init__(name, curr_bal, mini_bal, account_number, routing_number)
-        from bankAccount import BankAccount  # Local import to avoid circular dependency
+        from BankAccount import BankAccount  # Local import to avoid circular dependency
         self.bank_account = BankAccount(name, curr_bal, mini_bal, account_number, routing_number)  # Create a BankAccount instance
         self.account_number = account_number
         self.interest_rate = interest_rate  # Annual interest rate (2%)
