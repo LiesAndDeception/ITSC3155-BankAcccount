@@ -4,7 +4,9 @@
 # Assignment: Bank Account Part 2
 
 from bankAccount import BankAccount
-from saving_account import SavingsAccount
+from savings_account import SavingsAccount
+from checking_account import CheckingAccount
+
 
 # Testing functions
 # Prompt customer to input their information (customer name)
