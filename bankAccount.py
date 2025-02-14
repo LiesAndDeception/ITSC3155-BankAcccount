@@ -41,7 +41,7 @@ class BankAccount:
 
     # Method 3: print_customer_information (including the bank title)
     def print_customer_information(self):
-        print(f"Account Information for {self.name} from {self.bank_title}:")
+        print(f"Account Information for {self.name} from {self.title}:")
         print(f"Current Balance: {self.curr_bal}")
         print(f"Minimum Balance: {self.mini_bal}")
 
