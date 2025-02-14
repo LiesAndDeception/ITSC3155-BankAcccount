@@ -1,4 +1,4 @@
-# Author: Sophia Godfrey (TODO add Peter when merged in final branch)
+# Author: Sophia Godfrey and Peter Crean
 # Class: Intro to Software Engineering (ITSC 3155)
 # Date: February 13, 2025
 # Assignment: Bank Account Part 2
