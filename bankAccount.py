@@ -3,11 +3,9 @@
 # Date: February 13, 2025
 # Assignment: Bank Account Part 2
 
-import saving_account
-
 class BankAccount:
 
-    def __init__(self, name, curr_bal, mini_bal, account_number, routing_number):
+    def __init__(self, name, curr_bal, mini_bal, account_number, routing_number, daily_limit=0):
         # Class Attribute: Title of the bank
         self.title = "Turbo Credit Union"
 
@@ -15,44 +13,70 @@ class BankAccount:
         self.name = name  # customer name
         self.curr_bal = curr_bal  # current balance
         self.mini_bal = mini_bal  # minimum balance
-
         self.__account_number = account_number  # Private member
         self._routing_number = routing_number  # Protected member
+        self.daily_limit = daily_limit  # Maximum amount allowed per day
 
-    # Method 1: deposit money
+    # Error Checking Method
+    def _validate_transaction(self, value, is_withdrawal=False):
+        """Validates deposit and withdrawal transactions."""
+
+        # Ensure the input is a valid number
+        if not isinstance(value, (int, float)):
+            print("Error: Invalid amount. Please enter a valid number.")
+            return False
+
+        # Ensure the transaction amount is positive
+        if value <= 0:
+            print("Error: Amount must be positive.")
+            return False
+
+        # Additional checks for withdrawals
+        if is_withdrawal:
+            if self.daily_limit - value < 0:
+                print("Error: Unable to withdraw. Requested amount exceeds daily transfer limit.")
+                return False
+            if self.curr_bal - value < self.mini_bal:
+                print("Error: Unable to withdraw. Requested amount exceeds available funds.")
+                return False
+
+        return True
+
+    # Deposit method
     def deposit(self, value):
-        print(f"Current amount is {self.curr_bal}")
-        
-        if value > 0:
+        """Deposit money after validation."""
+        print(f"Current balance: ${self.curr_bal:.2f}")
+
+        if self._validate_transaction(value):
             self.curr_bal += value
-            print(f"You deposited {value}. Your new balance is {self.curr_bal}.")
+            print(f"Successfully deposited ${value:.2f}. New balance: ${self.curr_bal:.2f}.")
         else:
-            print("You deposited an invalid amount")
- 
-    # Method 2: withdraw money
+            print("Deposit failed.")
+
+    # Withdraw method
     def withdraw(self, value):
-        print(f"Current amount is {self.curr_bal}")
+        """Withdraw money after validation."""
+        print(f"Current balance: ${self.curr_bal:.2f}, Daily limit: ${self.daily_limit:.2f}")
 
-        # Adding Validation: If remaining balance is less than minimal balance, user can't withdraw
-        if value > 0 and self.curr_bal - value >= self.mini_bal:
+        if self._validate_transaction(value, is_withdrawal=True):
             self.curr_bal -= value
-            print(f"You withdrew {value}. Your new balance is {self.curr_bal}.")
-        elif value > 0:
-            print(f"Insufficient funds. Remaining balance must be at least {self.mini_bal}.")
+            self.daily_limit -= value
+            print(
+                f"Successfully withdrew ${value:.2f}. Remaining balance: ${self.curr_bal:.2f}. Daily limit left: ${self.daily_limit:.2f}.")
         else:
-            print("Withdrawal amount must be positive.")
+            print("Withdrawal failed.")
 
-    # Method 3: to get the account number safely
+    # Method to get the account number safely
     def get_account_number(self):
         """Returns the masked account number (only last 4 digits visible)."""
         return f"****{str(self.__account_number)[-4:]}"
 
-    # Method 4: to get the routing number (protected, but accessible)
+    # Method to get the routing number (protected, but accessible)
     def get_routing_number(self):
         """Returns the routing number."""
         return self._routing_number
 
-    # Method 5: print_customer_information (including the bank title)
+    # Method to print the customer's information (including the bank title)
     def print_customer_information(self):
         print(f"Account Information for {self.name} from {self.title}:")
         print(f"Current Balance: {self.curr_bal}")

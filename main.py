@@ -11,8 +11,9 @@ from saving_account import SavingsAccount
 customer_name = input("Hello customer! If you have an account with us, enter your name: ")
 
 # Create test accounts
+# Routing number is the same as there is only one bank currently
 customer1 = BankAccount(name="David", curr_bal=100.0, mini_bal=0.0, account_number=111111111, routing_number=2222222222)
-customer2 = BankAccount(name="Ann", curr_bal=100.0, mini_bal=0.0, account_number=333333333, routing_number=444444444)
+customer2 = BankAccount(name="Ann", curr_bal=100.0, mini_bal=0.0, account_number=333333333, routing_number=2222222222)
 
 # Match the entered name to the correct customer instance
 if customer_name == customer1.name:
@@ -31,8 +32,8 @@ while True:
     # Show options to the customer
     print("\nPlease choose an option:")
     print("1. View bank account info")
-    print("2. Deposit money")
-    print("3. Withdraw money")
+    print("2. Access Checking Account")
+    print("3. Access Savings Account")
     print("4. Exit")
 
     choice = input("Enter the number of your choice: ")
@@ -40,22 +41,6 @@ while True:
     if choice == "1":
         # Print account information
         customer_account.print_customer_information()
-
-    elif choice == "2":
-        # Deposit money
-        try:
-            deposit_amount = float(input("Enter the amount to deposit: "))
-            customer_account.deposit(deposit_amount)
-        except ValueError:
-            print("Please enter a valid number.")
-
-    elif choice == "3":
-        # Withdraw money
-        try:
-            withdraw_amount = float(input("Enter the amount to withdraw: "))
-            customer_account.withdraw(withdraw_amount)
-        except ValueError:
-            print("Please enter a valid number.")
 
     elif choice == "4":
         # Exit the loop and end the interaction
