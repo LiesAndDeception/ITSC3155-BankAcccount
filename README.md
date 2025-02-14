@@ -1,5 +1,10 @@
 # ITSC3155-BankAcccount Part 2: Inheritance and Modularization
 
+**Authors:** Sophia Godfrey and Peter Crean <br> 
+**Class:** Intro to Software Engineering (ITSC 3155) <br>
+**Date:** February 13, 2025 <br>
+**Assignment:** Bank Account Part 2
+
 Pat 2 of the Bank Account assignment will add the following new features and use cases:
 
 | Category                      | Details                                      |
