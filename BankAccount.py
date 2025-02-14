@@ -83,3 +83,22 @@ class BankAccount:
         print(f"Minimum Balance: {self.mini_bal}")
         print(f"Routing Number: {self._routing_number}")  # Protected but accessible
 
+    def customer_action(self):
+        print(f"What would you like to do?")
+        context_action = input(f"deposit/withdraw/cancel: ")
+        if context_action == "deposit":
+            deposit_val = input(f"Please input the value you want to deposit: ")
+            self.deposit(int(deposit_val))
+
+        elif context_action == "withdraw":
+            withdraw_val = input(f"Please input the value you want to withdraw: ")
+            self.withdraw(int(withdraw_val))
+
+        elif context_action == "cancel":
+            pass
+
+        else: print(f"Please try again.")
+
+
+
+
