@@ -11,8 +11,12 @@ from saving_account import SavingsAccount
 customer_name = input("Hello customer! If you have an account with us, enter your name: ")
 
 # Create test accounts
-customer1 = BankAccount(name="David", curr_bal=100.0, mini_bal=0.0)
-customer2 = BankAccount(name="Ann", curr_bal=100.0, mini_bal=0.0)
+customer1 = BankAccount(name="David", curr_bal=100.0, mini_bal=0.0, account_number=111111111, routing_number=2222222222)
+customer2 = BankAccount(name="Ann", curr_bal=100.0, mini_bal=0.0, account_number=333333333, routing_number=444444444)
+
+# Testing protected and private members
+print(customer1.get_account_number())
+print(customer1.get_routing_number())
 
 # Match the entered name to the correct customer instance
 if customer_name == customer1.name:

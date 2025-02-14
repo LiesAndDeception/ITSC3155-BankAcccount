@@ -7,7 +7,7 @@ import saving_account
 
 class BankAccount:
 
-    def __init__(self, name, curr_bal, mini_bal):
+    def __init__(self, name, curr_bal, mini_bal, account_number, routing_number):
         # Class Attribute: Title of the bank
         self.title = "Turbo Credit Union"
 
@@ -15,6 +15,9 @@ class BankAccount:
         self.name = name  # customer name
         self.curr_bal = curr_bal  # current balance
         self.mini_bal = mini_bal  # minimum balance
+
+        self.__account_number = account_number  # Private member
+        self._routing_number = routing_number  # Protected member
 
     # Method 1: deposit money
     def deposit(self, value):
@@ -39,12 +42,20 @@ class BankAccount:
         else:
             print("Withdrawal amount must be positive.")
 
-    # Method 3: print_customer_information (including the bank title)
+    # Method 3: to get the account number safely
+    def get_account_number(self):
+        """Returns the masked account number (only last 4 digits visible)."""
+        return f"****{str(self.__account_number)[-4:]}"
+
+    # Method 4: to get the routing number (protected, but accessible)
+    def get_routing_number(self):
+        """Returns the routing number."""
+        return self._routing_number
+
+    # Method 5: print_customer_information (including the bank title)
     def print_customer_information(self):
         print(f"Account Information for {self.name} from {self.title}:")
         print(f"Current Balance: {self.curr_bal}")
         print(f"Minimum Balance: {self.mini_bal}")
-
-
-
-
+        print(f"Account Number: {self.get_account_number()}")
+        print(f"Routing Number: {self._routing_number}")  # Protected but accessible
