@@ -6,7 +6,7 @@
 class BankAccount:
 
     def __init__(self, name, curr_bal, mini_bal, account_number, routing_number, daily_limit=0):
-        # Class Attribute: Title of the bank
+        # Class Attributes: Title of the bank, bank's routing number
         self.title = "Turbo Credit Union"
 
         # Instance Attributes
@@ -81,5 +81,16 @@ class BankAccount:
         print(f"Account Information for {self.name} from {self.title}:")
         print(f"Current Balance: {self.curr_bal}")
         print(f"Minimum Balance: {self.mini_bal}")
-        print(f"Account Number: {self.get_account_number()}")
         print(f"Routing Number: {self._routing_number}")  # Protected but accessible
+
+    def print_saving_account_information(self):
+        print(f"Saving Account Information for {self.name} from {self.title}:")
+        print(f"Current Balance: {self.curr_bal}")
+        print(f"Minimum Balance: {self.mini_bal}")
+        print(f"Account Number: {self.get_account_number()}")
+
+    def print_checking_account_information(self):
+        print(f"Checking Account Information for {self.name} from {self.title}:")
+        print(f"Current Balance: {self.curr_bal}")
+        print(f"Minimum Balance: {self.mini_bal}")
+        print(f"Account Number: {self.get_account_number()}")

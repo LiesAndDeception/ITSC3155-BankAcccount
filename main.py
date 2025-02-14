@@ -4,6 +4,7 @@
 # Assignment: Bank Account Part 2
 
 from bankAccount import BankAccount
+from checking_account import CheckingAccount
 from saving_account import SavingsAccount
 
 # Testing functions
@@ -12,8 +13,13 @@ customer_name = input("Hello customer! If you have an account with us, enter you
 
 # Create test accounts
 # Routing number is the same as there is only one bank currently
-customer1 = BankAccount(name="David", curr_bal=100.0, mini_bal=0.0, account_number=111111111, routing_number=2222222222)
-customer2 = BankAccount(name="Ann", curr_bal=100.0, mini_bal=0.0, account_number=333333333, routing_number=2222222222)
+customer1 = BankAccount(name="David", curr_bal=None, mini_bal=None, account_number=None, routing_number=111111111)
+customer1_checking = CheckingAccount(name="David", curr_bal=1000, mini_bal=0, account_number=222222222, routing_number=111111111)
+customer1_saving = SavingsAccount(name="David", account_number=333333333, curr_bal=50, mini_bal=10, routing_number=111111111)
+
+customer2 = BankAccount(name="Ann", curr_bal=None, mini_bal=None, account_number=None, routing_number=111111111)
+customer2_checking = CheckingAccount(name="Ann", curr_bal=8000, mini_bal=500, account_number=444444444, routing_number=111111111)
+customer2_saving = SavingsAccount(name="Ann", account_number=555555555, curr_bal=5000, mini_bal=300, routing_number=111111111)
 
 # Match the entered name to the correct customer instance
 if customer_name == customer1.name:
@@ -41,6 +47,9 @@ while True:
     if choice == "1":
         # Print account information
         customer_account.print_customer_information()
+
+    elif choice == "2":
+        print("Checking Account Information:")
 
     elif choice == "4":
         # Exit the loop and end the interaction
