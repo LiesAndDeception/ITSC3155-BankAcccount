@@ -3,7 +3,7 @@
 # Date: February 13, 2025
 # Assignment: Bank Account Part 2
 
-from savings_account import SavingsAccount
+import saving_account
 
 class BankAccount:
 
