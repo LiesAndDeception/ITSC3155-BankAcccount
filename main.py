@@ -3,6 +3,7 @@
 # Date: February 13, 2025
 # Assignment: Bank Account Part 2
 
+import checking_account
 from bankAccount import BankAccount
 from checking_account import CheckingAccount
 from saving_account import SavingsAccount
@@ -50,9 +51,37 @@ while True:
 
     elif choice == "2":
         print("Checking Account Information:")
+        customer_account.print_customer_information()
+
+        # Match customer name to the correct checking account and update customer_account
+        if customer_name == customer1.name:
+            customer_account = customer1_checking
+        elif customer_name == customer2.name:
+            customer_account = customer2_checking
+        else:
+            print("Error: Checking account not found.")
+            continue  # Go back to menu
+
+        print("Your masked Checking account number is:")
+        print(customer_account.get_account_number())
+
+    elif choice == "3":
+        print("Savings Account Information:")
+        customer_account.print_customer_information()
+
+        # Match customer name to the correct checking account and update customer_account
+        if customer_name == customer1.name:
+            customer_account = customer1_saving
+        elif customer_name == customer2.name:
+            customer_account = customer2_saving
+        else:
+            print("Error: Checking account not found.")
+            continue  # Go back to menu
+
+        print("Your masked Saving account number is:")
+        print(customer_account.get_account_number())
 
     elif choice == "4":
-        # Exit the loop and end the interaction
         print(f"Thank you for using {customer_account.title}. Have a great day!")
         break
 

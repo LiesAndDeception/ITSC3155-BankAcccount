@@ -83,14 +83,3 @@ class BankAccount:
         print(f"Minimum Balance: {self.mini_bal}")
         print(f"Routing Number: {self._routing_number}")  # Protected but accessible
 
-    def print_saving_account_information(self):
-        print(f"Saving Account Information for {self.name} from {self.title}:")
-        print(f"Current Balance: {self.curr_bal}")
-        print(f"Minimum Balance: {self.mini_bal}")
-        print(f"Account Number: {self.get_account_number()}")
-
-    def print_checking_account_information(self):
-        print(f"Checking Account Information for {self.name} from {self.title}:")
-        print(f"Current Balance: {self.curr_bal}")
-        print(f"Minimum Balance: {self.mini_bal}")
-        print(f"Account Number: {self.get_account_number()}")
