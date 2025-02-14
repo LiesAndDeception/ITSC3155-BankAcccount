@@ -1,5 +1,3 @@
-import BankAccount
-
 class CheckingAccount:
 
     def __init__(self, name, curr_bal, mini_bal):
